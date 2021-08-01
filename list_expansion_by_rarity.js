@@ -12,7 +12,8 @@ if (!infile) {
 const rawdata = fs.readFileSync(infile);
 let cardlist = JSON.parse(rawdata).cards;
 
-switch (expansion) {
+// file name param can contains folders, so just take the last 3 characters
+switch (expansion.slice(-3)) {
   case "STX":
     cardlist = cardlist.filter(item => item.card_id < 77480)
     break;
